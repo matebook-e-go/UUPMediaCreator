@@ -174,133 +174,140 @@ namespace UUPDownload.DownloadRequest
             public int[] excludedIds;
         }
 
-        private static readonly string RepoLocation = @"D:\a\ID1\Duo\repos\Qualcomm-Reference-Drivers";
+        private static readonly string RepoLocation = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Download");
 
         private static readonly DriverPlan[] plans = new DriverPlan[]
         {
-            new() // Snapdragon 8cx Gen 1 (Pre-release) Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\1000_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SDM1000", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon 7c Gen 1/2 Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\7180_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SC7180", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = new int[3] {1, 9, 10}
-            },
-            new() // Snapdragon 7c+ Gen 3 (Pre-release) Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\7280_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon 7c+ Gen 3 Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\7280_WINDOWS_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK_WINDOWS", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon 8cx Gen 1/2 Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\8180_CLS",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SC8180X", "CLS", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon 8cx Gen 3 Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\8280_QRD",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SCP_MAKENA", "QRD", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Snapdragon X Elite Clamshell Reference Design
-            {
-                outputFolder = RepoLocation + @"\8380_CRD",
-                guid = CTAC.GenerateDeviceId("Qualcomm", "SCP_HAMOA", "CRD", "6").ToString(),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Surface Pro X with SQ1 processor
-            {
-                outputFolder = RepoLocation + @"\Surface\8180_CAM",
-                guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro X", "Surface_Pro_X_1876"),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Surface Pro X with SQ2 processor
-            {
-                outputFolder = RepoLocation + @"\Surface\8180_CAR",
-                guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro X", "Surface_Pro_X_H_1876"),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Surface Pro X (Wi-Fi)
-            {
-                outputFolder = RepoLocation + @"\Surface\8180_CAS",
-                guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro X", "Surface_Pro_X_2010"),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Surface Pro 9 with 5G (outside of U.S.)
-            {
-                outputFolder = RepoLocation + @"\Surface\8280_ARC_1996",
-                guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro 9", "Surface_Pro_9_With_5G_1996"),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Surface Pro 9 with 5G (U.S.)
-            {
-                outputFolder = RepoLocation + @"\Surface\8280_ARC_1997",
-                guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro 9", "Surface_Pro_9_With_5G_1997"),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new() // Windows Dev Kit 2023
-            {
-                outputFolder = RepoLocation + @"\Surface\8280_BLK",
-                guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Windows Dev Kit 2023", "2043"),
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
+            //new() // Snapdragon 8cx Gen 1 (Pre-release) Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\1000_CLS",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SDM1000", "CLS", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Snapdragon 7c Gen 1/2 Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\7180_CLS",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SC7180", "CLS", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = new int[3] {1, 9, 10}
+            //},
+            //new() // Snapdragon 7c+ Gen 3 (Pre-release) Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\7280_CLS",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK", "CLS", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Snapdragon 7c+ Gen 3 Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\7280_WINDOWS_CLS",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SC_KODIAK_WINDOWS", "CLS", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Snapdragon 8cx Gen 1/2 Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\8180_CLS",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SC8180X", "CLS", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Snapdragon 8cx Gen 3 Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\8280_QRD",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SCP_MAKENA", "QRD", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Snapdragon X Elite Clamshell Reference Design
+            //{
+            //    outputFolder = RepoLocation + @"\8380_CRD",
+            //    guid = CTAC.GenerateDeviceId("Qualcomm", "SCP_HAMOA", "CRD", "6").ToString(),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Surface Pro X with SQ1 processor
+            //{
+            //    outputFolder = RepoLocation + @"\Surface\8180_CAM",
+            //    guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro X", "Surface_Pro_X_1876"),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Surface Pro X with SQ2 processor
+            //{
+            //    outputFolder = RepoLocation + @"\Surface\8180_CAR",
+            //    guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro X", "Surface_Pro_X_H_1876"),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Surface Pro X (Wi-Fi)
+            //{
+            //    outputFolder = RepoLocation + @"\Surface\8180_CAS",
+            //    guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro X", "Surface_Pro_X_2010"),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Surface Pro 9 with 5G (outside of U.S.)
+            //{
+            //    outputFolder = RepoLocation + @"\Surface\8280_ARC_1996",
+            //    guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro 9", "Surface_Pro_9_With_5G_1996"),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Surface Pro 9 with 5G (U.S.)
+            //{
+            //    outputFolder = RepoLocation + @"\Surface\8280_ARC_1997",
+            //    guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Surface Pro 9", "Surface_Pro_9_With_5G_1997"),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new() // Windows Dev Kit 2023
+            //{
+            //    outputFolder = RepoLocation + @"\Surface\8280_BLK",
+            //    guid = CTAC.GenerateDeviceId("Microsoft Corporation", "Surface", "Windows Dev Kit 2023", "2043"),
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new()
+            //{
+            //    outputFolder = RepoLocation + @"\Samsung\GalaxyBook2Legacy",
+            //    guid = "{4ddc74f1-1cba-50ac-96c4-baeaf09a117d}",
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new()
+            //{
+            //    outputFolder = RepoLocation + @"\Samsung\GalaxyBook2",
+            //    guid = "{a7271695-80b5-56b3-8e50-56c6ce883b07}",
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new()
+            //{
+            //    outputFolder = RepoLocation + @"\HP\EnvyX2",
+            //    guid = "{79511a83-8e29-5b28-babd-ee57d65eeea2}",
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new()
+            //{
+            //    outputFolder = RepoLocation + @"\Asus\NovaGo",
+            //    guid = "{e2c6ff8b-f787-5c14-a0cb-6d6723e870ec}",
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
+            //new()
+            //{
+            //    outputFolder = RepoLocation + @"\Lenovo\YogaC630",
+            //    guid = "{43b71948-9c47-5372-a5cb-18db47bb873f}",
+            //    filteredIds = Array.Empty<int>(),
+            //    excludedIds = Array.Empty<int>()
+            //},
             new()
             {
-                outputFolder = RepoLocation + @"\Samsung\GalaxyBook2Legacy",
-                guid = "{4ddc74f1-1cba-50ac-96c4-baeaf09a117d}",
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new()
-            {
-                outputFolder = RepoLocation + @"\Samsung\GalaxyBook2",
-                guid = "{a7271695-80b5-56b3-8e50-56c6ce883b07}",
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new()
-            {
-                outputFolder = RepoLocation + @"\HP\EnvyX2",
-                guid = "{79511a83-8e29-5b28-babd-ee57d65eeea2}",
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new()
-            {
-                outputFolder = RepoLocation + @"\Asus\NovaGo",
-                guid = "{e2c6ff8b-f787-5c14-a0cb-6d6723e870ec}",
-                filteredIds = Array.Empty<int>(),
-                excludedIds = Array.Empty<int>()
-            },
-            new()
-            {
-                outputFolder = RepoLocation + @"\Lenovo\YogaC630",
-                guid = "{43b71948-9c47-5372-a5cb-18db47bb873f}",
+                outputFolder = RepoLocation + @"\Huawei\GK-W7X",
+                guid = "{e1b94e53-0f20-5d01-abfc-cfb348544a31}",
                 filteredIds = Array.Empty<int>(),
                 excludedIds = Array.Empty<int>()
             }
